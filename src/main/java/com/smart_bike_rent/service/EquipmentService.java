@@ -21,8 +21,11 @@ public class EquipmentService {
         Optional<Equipment> optionalEquipment = equipmentRepository.findByNameEquipment(createEquipmentRequest.getNameEquipment());
         if (optionalEquipment.isEmpty()){
             Equipment equipment = new Equipment();
-          equipment.setNameEquipment(createEquipmentRequest.getNameEquipment());
-          equipment.setPriceEquipment(createEquipmentRequest.getPriceEquipment());
+                    equipment.setNameEquipment(createEquipmentRequest.getNameEquipment());
+                    equipment.setFrameNumber(createEquipmentRequest.getFrameNumber());
+                    equipment.setSize(createEquipmentRequest.getSize());
+                    equipment.setAvailable(createEquipmentRequest.isAvailable());
+                    equipment.setPriceEquipment(createEquipmentRequest.getPriceEquipment());
             equipmentRepository.save(equipment);
         } else {
             throw new EquipmentAlreadyExistsException("Equipment with name: " + createEquipmentRequest.getNameEquipment()+ "already exists. Change name");

@@ -1,5 +1,7 @@
 package com.smart_bike_rent.dto;
 
+import com.smart_bike_rent.entity.equipment.SizeBike;
+import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,5 +13,8 @@ public class EquipmentDTO {
     private Long idEquipment;
 
     private String nameEquipment;
+    private Integer frameNumber;
+    private SizeBike size;
+    private boolean available;
     private Double priceEquipment;
 }

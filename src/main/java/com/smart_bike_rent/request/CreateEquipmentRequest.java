@@ -1,5 +1,7 @@
 package com.smart_bike_rent.request;
 
+import com.smart_bike_rent.entity.equipment.SizeBike;
+import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,5 +11,12 @@ import lombok.NoArgsConstructor;
 public class CreateEquipmentRequest {
 
     private String nameEquipment;
+
     private Double priceEquipment;
+
+    private Integer frameNumber;
+
+    private SizeBike size;
+
+    private boolean available;
 }
