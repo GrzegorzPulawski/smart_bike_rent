@@ -13,7 +13,7 @@ public class EquipmentDTO {
     private Long idEquipment;
 
     private String nameEquipment;
-    private Integer frameNumber;
+    private String frameNumber;
     private SizeBike size;
     private boolean available;
     private Double priceEquipment;

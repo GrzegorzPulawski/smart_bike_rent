@@ -43,6 +43,15 @@ public class RentingService {
                 Optional<Equipment> optionalEquipment = equipmentRepository.findById(idEquipment);
                 if (optionalEquipment.isPresent()) {
                     Equipment equipment = optionalEquipment.get();
+
+                    if (!equipment.isAvailable()) {
+                        throw new EquipmentNotExists("Equipment with ID " + idEquipment + " is not available.");
+                    }
+
+                    // Mark the equipment as unavailable
+                    equipment.setAvailable(false);
+                    equipmentRepository.save(equipment); // Update the equipment status in the database
+
                     //Kreujemy wypozyczenie
                     Renting renting = Renting.builder()
                             .client(client)

@@ -12,11 +12,11 @@ public class CreateEquipmentRequest {
 
     private String nameEquipment;
 
-    private Double priceEquipment;
-
-    private Integer frameNumber;
+    private String frameNumber;
 
     private SizeBike size;
 
     private boolean available;
+
+    private Double priceEquipment;
 }

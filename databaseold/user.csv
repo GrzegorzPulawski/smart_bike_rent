@@ -1,0 +1,8 @@
+"id";"first_name";"last_name";"login";"password";"role";"calendar"
+1;"Mandra";"9531209999";"greg1";"$2a$10$yZGyvrgRlMEYqE2Uf08J5eFc3MLBGoMfAlZd/AJak2lz8/Toq/78i";"DEVEL";1
+2;"Na Krawedzi";"888999111";"gibon";"$2a$10$gDq6Gey.EIIUjialOF2aWez2Sm5h0IWPbFbjRdAS9CZ.amOhLRlA.";"DEVEL";0
+3;"Akademia narciarska";"777888999";"Marek";"$2a$10$sW6fjGklAPtJAezLEzYfCe/LkzUId3zlY7YQrN8ULvjAhUy.g8BLq";"USER";0
+4;"";"";"";"$2a$10$6TYxesZYwKf66pmpabPI1OUWXl/jAvmahLcJBTjc2bKdwmKCPB6Y.";"USER";0
+5;"Marcin";"Jab³oñski";"Marcin";"$2a$10$Hg9F..4KiTjM0YYR19G7oObE7FW.AjTelkyCv1OkallySUy73PioS";"USER";0
+6;"Franek";"Kanarek";"Kanar";"$2a$10$1r5g9yvvaRy0vD/lLr3iouVv5HNmF2h8b2fKaAOf24DKy9Nfeb5vm";"USER";0
+7;"Marcin";"Wielki";"ada";"$2a$10$Rlp5RL9pDQZXst.2JgSWyeQ/fDF8N1LfazSihN7n3o5L6Klf75sIy";"USER";0

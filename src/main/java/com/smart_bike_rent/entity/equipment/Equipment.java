@@ -23,12 +23,11 @@ public class Equipment {
     private String nameEquipment;
 
     @Column(name = "frame_number")
-    private Integer frameNumber;
-
+    private String frameNumber;
+    @Enumerated(EnumType.STRING)
     private SizeBike size;
 
-    @Column(name = "is_available")
-    private boolean available;
+    private boolean available=true;
     @Column(name = "price_Equipment")
     private Double priceEquipment;
 
