@@ -26,7 +26,7 @@ public class Equipment {
     private String frameNumber;
     @Enumerated(EnumType.STRING)
     private SizeBike size;
-
+    @Builder.Default
     private boolean available=true;
     @Column(name = "price_Equipment")
     private Double priceEquipment;

@@ -15,4 +15,15 @@ public enum SizeBike {
     public String getName() {
         return nameSize;
     }
+
+    // Lookup enum by display name
+    public static SizeBike fromName(String name) {
+        for (SizeBike size : SizeBike.values()) {
+            if (size.nameSize.equalsIgnoreCase(name)) {
+                return size;
+            }
+        }
+        throw new IllegalArgumentException("Unknown size: " + name);
+    }
+
 }
