@@ -39,5 +39,14 @@ public class EquipmentController {
         log.info("Equipment is deleted with id: " + idEquipment );
         equipmentService.deleteEquipment(idEquipment);
     }
+    @GetMapping("/details/{id}")
+    public ResponseEntity<EquipmentDTO> getEquipmentById(@PathVariable Long id) {
+        try {
+            EquipmentDTO equipmentDTO = equipmentService.getEquipmentById(id);
+            return ResponseEntity.ok(equipmentDTO); // Return DTO
+        } catch (EquipmentNotExists e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null); // Return 404 if not found
+        }
+    }
 
 }
