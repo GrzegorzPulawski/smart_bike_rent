@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -87,6 +88,8 @@ public class RentingService {
                 Double calculatePriceOfDuration = equipment.getPriceEquipment() * getTimeDuration(renting, useCalendarDay);
                 //zapisz cenę ostateczną dla obiektu
                 renting.setPriceOfDuration(calculatePriceOfDuration);
+                //zanacz sprzęt dostepny
+                equipment.setAvailable(true);
                 //zapisz wszystko w bazie
               return   rentingRepository.save(renting);
             }   throw new RentingAlreadyReturnException("Renting have rented");
@@ -120,6 +123,13 @@ public class RentingService {
     public List<RentingDTO> listRentings(){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
         return rentingRepository.findAllByOrderByDateRentingDesc().stream()
+                .map(this::mapRentingToDTO)
+                .collect(Collectors.toList());
+    }
+    public List<RentingDTO> findListRecentlyRenting(){
+        DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
+        return rentingRepository.findAll().stream()
+                .filter(renting -> renting.getDateOfReturn() == null)
                 .map(this::mapRentingToDTO)
                 .collect(Collectors.toList());
     }
@@ -174,6 +184,7 @@ public class RentingService {
                 formatLocalDateTime(renting.getDateRenting()),
                 renting.getEquipment().getNameEquipment(),
                 renting.getEquipment().getPriceEquipment(),
+                renting.getEquipment().getFrameNumber(),
                 formatLocalDateTime(renting.getDateOfReturn()),
                 renting.getPriceOfDuration(),
                 renting.getDaysOfRental()

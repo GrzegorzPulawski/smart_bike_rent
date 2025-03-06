@@ -93,14 +93,24 @@ public class RentingController {
         }
     }
 
-    @GetMapping("/recentlyReturned") // Nowy endpoint
+    @GetMapping("/recentlyReturned")
     public ResponseEntity<List<RentingDTO>> getRecentlyReturnedRentings() {
         try {
             List<RentingDTO> rentings = rentingService.findRecentlyReturnedRentings();
             return ResponseEntity.ok(rentings);
         } catch (Exception e) {
-            log.error("Error fetching recently returned rentings:", e);
+            log.error("Error gets recently returned rentings:", e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Collections.emptyList());
+        }
+    }
+    @GetMapping("/recentlyRenting")
+    public ResponseEntity<List<RentingDTO>> getRecentlyListRenting(){
+        try{
+            List<RentingDTO> rentingDTO = rentingService.findListRecentlyRenting();
+                return ResponseEntity.ok(rentingDTO);
+        }catch (Exception e) {
+            log.error("Error getting recently renting: ", e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
 }

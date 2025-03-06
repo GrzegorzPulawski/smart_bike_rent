@@ -26,11 +26,17 @@ public class Equipment {
     private String frameNumber;
     @Enumerated(EnumType.STRING)
     private SizeBike size;
+
+    @Enumerated(EnumType.STRING)
+    private TypeBike type;
     @Builder.Default
     private boolean available=true;
+
+    @Builder.Default
+    private boolean electric=false;
     @Column(name = "price_Equipment")
     private Double priceEquipment;
 
 
-    public EquipmentDTO mapEquipmentToDTO(){return new EquipmentDTO(idEquipment, this.nameEquipment, this.frameNumber, this.size, this.available, this.priceEquipment);}
+    public EquipmentDTO mapEquipmentToDTO(){return new EquipmentDTO(idEquipment, this.nameEquipment, this.frameNumber, this.size, this.type, this.available, this.electric, this.priceEquipment);}
 }

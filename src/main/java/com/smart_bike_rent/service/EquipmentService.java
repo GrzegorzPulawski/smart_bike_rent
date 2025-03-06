@@ -26,7 +26,9 @@ public class EquipmentService {
             equipment.setNameEquipment(createEquipmentRequest.getNameEquipment());
             equipment.setFrameNumber(createEquipmentRequest.getFrameNumber());
             equipment.setSize(createEquipmentRequest.getSize());
+            equipment.setType(createEquipmentRequest.getType());
             equipment.setAvailable(createEquipmentRequest.isAvailable());
+            equipment.setElectric(createEquipmentRequest.isElectric());
             equipment.setPriceEquipment(createEquipmentRequest.getPriceEquipment());
             equipmentRepository.save(equipment);
         } else {
@@ -66,7 +68,9 @@ public class EquipmentService {
                 equipment.getNameEquipment(),
                 equipment.getFrameNumber(),
                 equipment.getSize(),
+                equipment.getType(),
                 equipment.isAvailable(),
+                equipment.isElectric(),
                 equipment.getPriceEquipment()
         );
     }

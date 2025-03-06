@@ -17,6 +17,7 @@ public class RentingDTO {
     private String dateRenting;
     private String nameEquipment;
     private Double priceEquipment;
+    private String frameNumber;
 
     private String dateOfReturn;
     private Double priceOfDuration;
