@@ -1,13 +1,11 @@
 package com.smart_bike_rent.controller;
 
 import com.smart_bike_rent.dto.EquipmentDTO;
-import com.smart_bike_rent.entity.equipment.Equipment;
 import com.smart_bike_rent.exception.EquipmentNotExists;
 import com.smart_bike_rent.request.CreateEquipmentRequest;
 import com.smart_bike_rent.service.EquipmentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
