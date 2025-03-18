@@ -19,9 +19,10 @@ public class WebConfigNew {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.addAllowedOrigin("http://localhost:3000");
+        //config.addAllowedOrigin("http://localhost:3000");
         //config.addAllowedOrigin("https://frontend-smart-ski-ed51f9e974f1.herokuapp.com");
         //config.addAllowedOrigin("https://nakrawedzi-dd90555f2d39.herokuapp.com");
+        config.addAllowedOrigin("https://bike-rent-frontend-38105283785e.herokuapp.com/");
         config.setAllowedHeaders(Arrays.asList(
                 HttpHeaders.AUTHORIZATION,
                 HttpHeaders.CONTENT_TYPE,
