@@ -167,7 +167,7 @@ public class RentingService {
     }
 
     public List<RentingDTO> findRecentlyReturnedRentings() {
-        LocalDateTime cutoffTime = LocalDateTime.now().minusMinutes(60);
+        LocalDateTime cutoffTime = LocalDateTime.now().minusMinutes(120);
         List<Renting> rentings = rentingRepository.findByDateOfReturnGreaterThan(cutoffTime);
         return rentings.stream()
                 .map(this::mapRentingToDTO)
