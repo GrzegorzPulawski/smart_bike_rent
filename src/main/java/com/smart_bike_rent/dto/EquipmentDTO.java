@@ -3,6 +3,7 @@ package com.smart_bike_rent.dto;
 import com.smart_bike_rent.entity.equipment.SizeBike;
 import com.smart_bike_rent.entity.equipment.TypeBike;
 import jakarta.persistence.Column;
+import jakarta.persistence.Lob;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,4 +21,7 @@ public class EquipmentDTO {
     private boolean available;
     private boolean electric;
     private Double priceEquipment;
+    private String barcodeValue;
+    private byte[] barcodeImage;
+
 }

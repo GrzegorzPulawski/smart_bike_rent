@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.extern.java.Log;
 
 
 @Builder
@@ -31,12 +32,16 @@ public class Equipment {
     private TypeBike type;
     @Builder.Default
     private boolean available=true;
-
     @Builder.Default
     private boolean electric=false;
-    @Column(name = "price_Equipment")
+    @Column( length = 255, name = "price_Equipment")
     private Double priceEquipment;
+    @Column(unique = true, length = 20, name="barcode_value")
+    private String barcodeValue;
+    @Lob
+    @Column(name="barcode_image")
+    private byte[] barcodeImage;
 
 
-    public EquipmentDTO mapEquipmentToDTO(){return new EquipmentDTO(idEquipment, this.nameEquipment, this.frameNumber, this.size, this.type, this.available, this.electric, this.priceEquipment);}
+    public EquipmentDTO mapEquipmentToDTO(){return new EquipmentDTO(idEquipment, this.nameEquipment, this.frameNumber, this.size, this.type, this.available, this.electric, this.priceEquipment, this.barcodeValue, this.barcodeImage);}
 }

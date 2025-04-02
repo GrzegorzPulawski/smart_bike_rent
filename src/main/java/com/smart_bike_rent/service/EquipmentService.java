@@ -8,16 +8,16 @@ import com.smart_bike_rent.exception.EquipmentNotExists;
 import com.smart_bike_rent.repositories.EquipmentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 public class EquipmentService {
     private final EquipmentRepository equipmentRepository;
+
+    private  Equipment equipment;
 
     public void createEquipment(CreateEquipmentRequest createEquipmentRequest) {
         Optional<Equipment> optionalEquipment = equipmentRepository.findByNameEquipment(createEquipmentRequest.getNameEquipment());
@@ -57,21 +57,10 @@ public class EquipmentService {
         Optional<Equipment> optionalEquipment = equipmentRepository.findById(idEquipment);
         if (optionalEquipment.isPresent()) {
             Equipment equipment = optionalEquipment.get();
-            return mapToDto(equipment); // Map the entity to DTO
+            return equipment.mapEquipmentToDTO();
         } else {
             throw new EquipmentNotExists("Equipment with id: " + idEquipment + " not exists");
         }
     }
-    private EquipmentDTO mapToDto(Equipment equipment) {
-        return new EquipmentDTO(
-                equipment.getIdEquipment(),
-                equipment.getNameEquipment(),
-                equipment.getFrameNumber(),
-                equipment.getSize(),
-                equipment.getType(),
-                equipment.isAvailable(),
-                equipment.isElectric(),
-                equipment.getPriceEquipment()
-        );
-    }
 }
+

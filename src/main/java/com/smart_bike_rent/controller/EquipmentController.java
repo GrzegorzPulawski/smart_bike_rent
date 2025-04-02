@@ -5,6 +5,7 @@ import com.smart_bike_rent.exception.EquipmentNotExists;
 import com.smart_bike_rent.request.CreateEquipmentRequest;
 import com.smart_bike_rent.service.EquipmentService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -17,6 +18,7 @@ import java.util.List;
 @RequestMapping("/api/equipments")
 public class EquipmentController {
     private final EquipmentService equipmentService;
+
     public EquipmentController(EquipmentService equipmentService) {
         this.equipmentService = equipmentService;
     }
