@@ -4,9 +4,13 @@ import com.smart_bike_rent.dto.EquipmentDTO;
 import com.smart_bike_rent.entity.equipment.Equipment;
 import com.smart_bike_rent.exception.EquipmentNotFoundException;
 import com.smart_bike_rent.repositories.EquipmentRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
 
 @Service
 public class EquipmentBarcodeService {
@@ -33,12 +37,17 @@ public class EquipmentBarcodeService {
         String randomSuffix = RandomStringUtils.randomAlphanumeric(4).toUpperCase();
         return String.format("BIKE-%03d-%s", bikeId, randomSuffix); // np. "BIKE-042-AB3D"
     }
-    public EquipmentDTO saveBarcode(EquipmentDTO equipmentDTO){
-        if (equipmentDTO == null || equipmentDTO.getBarcodeValue().isEmpty()){
-            String barcode = generateBarcode(equipmentDTO.getIdEquipment());
-            equipmentDTO.setBarcodeValue(barcode);
+
+
+    public EquipmentDTO  findEquipmentByCodeBar(String barcode) {
+        Optional<Equipment> equipmentOptional = equipmentRepository.findByBarcodeValue(barcode);
+        if (equipmentOptional.isPresent()) {
+            Equipment equipment =equipmentOptional.get();
+            EquipmentDTO equipmentDTO = equipment.mapEquipmentToDTO();
+            return equipmentDTO;
         }
-        return  equipmentRepository.save(equipmentDTO.map)
+        throw new RuntimeException("Nie zanleziono roweru z podanym kodem");
+
     }
 
 }

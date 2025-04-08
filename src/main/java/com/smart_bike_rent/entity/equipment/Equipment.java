@@ -38,10 +38,11 @@ public class Equipment {
     private Double priceEquipment;
     @Column(unique = true, length = 20, name="barcode_value")
     private String barcodeValue;
-    @Lob
-    @Column(name="barcode_image")
-    private byte[] barcodeImage;
 
 
-    public EquipmentDTO mapEquipmentToDTO(){return new EquipmentDTO(idEquipment, this.nameEquipment, this.frameNumber, this.size, this.type, this.available, this.electric, this.priceEquipment, this.barcodeValue, this.barcodeImage);}
+
+    public EquipmentDTO mapEquipmentToDTO(){
+        return new
+            EquipmentDTO(idEquipment, this.nameEquipment, this.frameNumber, this.size, this.type, this.available, this.electric, this.priceEquipment, this.barcodeValue);}
+
 }
