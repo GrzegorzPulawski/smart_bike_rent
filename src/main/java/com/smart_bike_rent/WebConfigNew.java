@@ -22,7 +22,6 @@ public class WebConfigNew {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
        // config.addAllowedOrigin("http://localhost:3000");
-       // config.setAllowedOriginPatterns(Collections.singletonList("http://localhost:3000"));
         config.addAllowedOrigin("https://bike-rent-frontend-38105283785e.herokuapp.com/");
         config.setAllowedHeaders(Arrays.asList(
                 HttpHeaders.AUTHORIZATION,
